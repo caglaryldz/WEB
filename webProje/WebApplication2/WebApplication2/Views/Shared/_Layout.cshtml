@@ -30,15 +30,25 @@
 
                         @if (User.Identity.IsAuthenticated) //kimlik dogrulandıyas sag üstte kullanici adi ve logout yazisi
                         {
-                            if (User.IsInRole("admin"))
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Administrator</a>
+                            if (User.IsInRole("admin"))//deneme
+                            {//deneme
+                                <li class="nav-item dropdown">  @*Admin sayfası dropdown menü*@
+                                    <a class="nav-link dropdown-toggle" asp-action="Index" asp-controller="Admin" role="button" data-bs-toggle="dropdown" aria-expanded="false">@*Admin sayfası dropdown menü*@
+                                        @*Admin sayfası dropdown menü*@
+                                        Admin Sayfası
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a asp-action="Index" asp-controller="User" class="dropdown-item">Filmler</a></li>@*degistir deneme*@
+                                       
+
+                                    </ul>
                                 </li>
+
                             }
 
                             <li class="nav-item ms-auto">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Profile">  @*Profil sayfasına yönlendir*@
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Profile">
+                                    @*Profil sayfasına yönlendir*@
                                     <i class="fa-solid fa-user me-2"></i>@User.FindFirst("Username").Value   @*KullaniciAdini göster*@
                                 </a>
                             </li>

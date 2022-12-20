@@ -784,3 +784,5 @@ C:\Users\cagla\Desktop\webProje\WebApplication2\WebApplication2\obj\Debug\net6.0
 C:\Users\cagla\Desktop\webProje\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.pdb
 C:\Users\cagla\Desktop\webProje\WebApplication2\WebApplication2\obj\Debug\net6.0\WebApplication2.genruntimeconfig.cache
 C:\Users\cagla\Desktop\webProje\WebApplication2\WebApplication2\obj\Debug\net6.0\ref\WebApplication2.dll
+C:\Users\cagla\Desktop\webProje\WebApplication2\WebApplication2\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\cagla\Desktop\webProje\WebApplication2\WebApplication2\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

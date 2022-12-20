@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "6UMZ1StTCjVItk7ZmUb1tcuBL9MVZCa1mTVvVubjwkp9o7ZXADnUAlM6ozmfOIb5kyzjaxijWPyTihEZrwT8TQ==",
+  "dgSpecHash": "FzlC/U635UkfP61kM3akNMiHhXK7dKkOj0U6rlJwFNt1lTKTVf/atzRvwa7XUT8d067prnZdmyB5Kg7/90EtrA==",
   "success": true,
   "projectFilePath": "C:\\Users\\cagla\\Desktop\\webProje\\WebApplication2\\WebApplication2\\WebApplication2.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\cagla\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
+    "C:\\Users\\cagla\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\cagla\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\cagla\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\cagla\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\6.0.9\\microsoft.aspnetcore.mvc.razor.extensions.6.0.9.nupkg.sha512",
@@ -13,7 +15,7 @@
     "C:\\Users\\cagla\\.nuget\\packages\\microsoft.codeanalysis.common\\4.0.0\\microsoft.codeanalysis.common.4.0.0.nupkg.sha512",
     "C:\\Users\\cagla\\.nuget\\packages\\microsoft.codeanalysis.csharp\\4.0.0\\microsoft.codeanalysis.csharp.4.0.0.nupkg.sha512",
     "C:\\Users\\cagla\\.nuget\\packages\\microsoft.codeanalysis.razor\\6.0.9\\microsoft.codeanalysis.razor.6.0.9.nupkg.sha512",
-    "C:\\Users\\cagla\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\cagla\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\cagla\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\cagla\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\cagla\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.9\\microsoft.entityframeworkcore.6.0.9.nupkg.sha512",
