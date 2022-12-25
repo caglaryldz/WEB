@@ -20,18 +20,18 @@
         <form method="post" asp-action="ProfileChangeImage"
               enctype="multipart/form-data">
             <div class="text-center mb-3">
-                <img src="~/uploads/@ViewData["ProfileImage"]" width="128" class="img-thumbnail rounded-circle" />
+                <img src="~/uploads/@ViewData["ProfileImage"]" width="128" class="img-thumbnail rounded-circle" />  @*Profil resmi genislik,yuvarlak*@
             </div>
             <div class="form-group mb-3">
-                <label class="form-label small">Profile Image<span class="badge bg-danger ms-2">required</span></label>
-                <input type="file" name="file" class="form-control" accept=".jpg" />
+                <label class="form-label small">Profile Resmi<span class="badge bg-info ms-2">required</span></label>
+                <input type="file" name="file" class="form-control" accept=".jpg" /> @*Sadece jpg*@
                 <div class="text-secondary">
                     <span class="small">
                         <i class="fa fa-info-circle me-2"></i>JPG DOSYASI
                     </span>
                 </div>
                 <div class="text-center mt-3">
-                    <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Save</button>
+                    <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Kaydet</button>
                 </div>
             </div>
         </form>
@@ -45,15 +45,19 @@
             <div class="form-group">
                 <label class="form-label small">Name Surname<span class="badge bg-danger ms-2">required</span></label>
                 <div class="input-group mb-3">
-                    <input name="fullname" type="text" class="form-control" placeholder="John Doe" value="@ViewData["FullName"]" />
-                    <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Save</button>
+                    <input name="fullname" type="text" class="form-control" placeholder="John Doe" value="@ViewData["FullName"]" /> @*Ad soyad degistirme*@
+                    <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Kaydet</button>
                 </div>
+                @if (ViewData["result2"] != null && ViewData["result2"] == "ProfileChanged")
+                {
+                    <span class="text-success small">Password updated.</span>
+                }
             </div>
         </form>
 
         <form method="post" asp-action="ProfileChangePassword">
             <div class="form-group">
-                <label class="form-label small">New Password<span class="badge bg-danger ms-2">required</span></label>
+                <label class="form-label small">New Password<span class="badge bg-primary ms-2">required</span></label>  @*Sifre degistirme*@
                 <div class="input-group">
                     <input name="password" type="password" class="form-control" placeholder="P@ssW0rd!" />
                     <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Save</button>
