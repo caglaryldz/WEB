@@ -12,7 +12,7 @@
 <div class="row mt-4">
     <div class="col-6 offset-6 my-3">
         <div class="mb-4">
-            <div asp-validation-summary="All" class="text-danger small"></div>
+            <div asp-validation-summary="All" class="text-danger small"></div> @*bos bırakıldıgında hata*@
         </div>
     </div>
 
@@ -48,10 +48,6 @@
                     <input name="fullname" type="text" class="form-control" placeholder="John Doe" value="@ViewData["FullName"]" /> @*Ad soyad degistirme*@
                     <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-floppy-disk me-2"></i>Kaydet</button>
                 </div>
-                @if (ViewData["result2"] != null && ViewData["result2"] == "ProfileChanged")
-                {
-                    <span class="text-success small">Password updated.</span>
-                }
             </div>
         </form>
 

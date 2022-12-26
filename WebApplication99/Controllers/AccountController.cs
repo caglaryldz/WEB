@@ -190,7 +190,7 @@ namespace WebApplication99.Controllers
 
                 user.ProfileImageFileName = fileName;
                 _databaseContext.SaveChanges();
-                ViewData["result2"] = "ProfileChanged";
+     
                 return RedirectToAction(nameof(Profile));
             }
 
