@@ -9,5 +9,6 @@ namespace WebApplication99.Entities
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Movie> Movies { get; set; }
     }
 }
