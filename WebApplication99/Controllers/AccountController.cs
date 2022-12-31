@@ -114,6 +114,7 @@ namespace WebApplication99.Controllers
 
             return View(model);
         }
+        
 
         public IActionResult Profile()
         {
@@ -121,6 +122,7 @@ namespace WebApplication99.Controllers
 
             return View();
         }
+
 
         private void ProfileInfoLoader()
         {
@@ -203,4 +205,6 @@ namespace WebApplication99.Controllers
             return RedirectToAction(nameof(Login));
         }
     }
+
+
 }

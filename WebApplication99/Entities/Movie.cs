@@ -7,12 +7,12 @@ namespace WebApplication99.Entities
     [Table("Movies")]
     public class Movie
     {
-        [Key]
-        public Guid Id { get; set; }
+       //[Key]
+        public int Id { get; set; }
 
         [StringLength(50)]
         public string? MovieName { get; set; } = null;
-        public string Yonetmen { get; set; }
+        public string? Yonetmen { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         [StringLength(255)]

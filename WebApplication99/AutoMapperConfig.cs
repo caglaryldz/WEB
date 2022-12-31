@@ -11,6 +11,13 @@ namespace WebApplication99
             CreateMap<User, UserModel>().ReverseMap();
             CreateMap<User, CreateUserModel>().ReverseMap();
             CreateMap<User, EditUserModel>().ReverseMap();
+            CreateMap<Movie, MovieModel>().ReverseMap();
         }
+
     }
+
+
+    
+
+
 }

@@ -1,5 +1,54 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Movies";
+}
+
+<div class="row">
+    <div class="col">
+        <h1 class="display-4">@ViewData["Title"]</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col">
+
+        <a asp-action="AddNewMoviePartial" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modalAdd" data-ajax="true" data-ajax-method="get" data-ajax-update="#modalAddContent">
+            <i class="fa fa-plus me-2"></i>Create Movie
+        </a>
+
+        <a id="refresh" asp-action="MemberListPartial" data-ajax="true" data-ajax-method="get" data-ajax-update="#panel"
+           class="btn btn-secondary btn-sm">
+            <i class="fa fa-sync-alt me-2"></i>Reload
+        </a>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col">
+        <div id="panel">
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalAdd" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div id="modalAddContent" class="modal-content"></div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEdit" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div id="modalEditContent" class="modal-content"></div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        $(function () {
+            refresh.click();
+        });
+    </script>
 }

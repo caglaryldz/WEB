@@ -4,6 +4,7 @@ using WebApplication99.Helpers;
 using WebApplication99.Models;
 using AutoMapper;
 
+
 namespace WebApplication99.Controllers
 {
     public class MovieController : Controller
@@ -22,13 +23,41 @@ namespace WebApplication99.Controllers
         {
             return View();
         }
-        public IActionResult MemberListPartial()
+        public IActionResult MovieListPartial()
         {
-            List<MovieModel> movies =
-                _databaseContext.Movies.ToList()
-                    .Select(x => _mapper.Map<MovieModel>(x)).ToList();
+            List<Movie> movies = _databaseContext.Movies.ToList();
+            List<MovieModel> model = new List<MovieModel>();
+            _databaseContext.Movies.Select(x => new MovieModel { Id = x.Id, MovieName = x.MovieName, Yonetmen = x.Yonetmen, CreatedAt = x.CreatedAt, CategoryId=x.CategoryId });
 
-            return PartialView("_MemberListPartial", movies);  //?
+
+            return PartialView("_MovieListPartial", movies);  //?
+        }
+
+        public IActionResult AddNewMovie(CreateMovieModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_databaseContext.Movies.Any(x => x.MovieName.ToLower() == model.MovieName.ToLower()))
+                {
+                    ModelState.AddModelError(nameof(model.MovieName), "Film adi daha önceden alinmis.");
+                    return PartialView("_AddNewMoviePartial", model);
+                }
+
+                Movie movie = new()
+                {
+                    MovieName = model.MovieName,
+                    Yonetmen= model.Yonetmen,
+                    
+                };
+
+
+                _databaseContext.Movies.Add(movie);
+                _databaseContext.SaveChanges();
+
+                return PartialView("_AddNewUserPartial", new CreateUserModel { Done = "Kllanici eklendi." });
+            }
+
+            return PartialView("_AddNewUserPartial", model);
         }
     }
 }

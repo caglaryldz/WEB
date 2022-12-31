@@ -1,0 +1,51 @@
+﻿@model CreateMovieModel
+
+<div class="modal-header">
+    <h1 class="modal-title fs-5">Create New Movie</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    <form id="frmAddNewMovie" asp-action="AddNewMovie" method="post"
+          data-ajax="true" data-ajax-method="post" data-ajax-update="#modalAddContent">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+
+        <div class="form-group mb-3">
+            <label asp-for="MovieName" class="form-label">Movie Name</label>
+            <input asp-for="MovieName" class="form-control" placeholder="LUCY" />
+            <span asp-validation-for="MovieName" class="text-danger small"></span>
+        </div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Yonetmen" class="form-label">Yonetmen</label>
+            <input asp-for="Yonetmen" class="form-control" placeholder="Nolan" />
+            <span asp-validation-for="Yonetmen" class="text-danger small"></span>
+        </div>
+        @*<div class="form-group mb-3">
+            <label asp-for="CategoryId" class="form-label">categoryID</label>
+            <input asp-for="CategoryId" class="form-control" placeholder="ıd" />
+            <span asp-validation-for="CategoryId" class="text-danger small"></span>
+        </div>
+
+
+        <div class="form-group mb-3">
+            <label asp-for="MovieImageFileName" class="form-label">movıeImage</label>
+            <input asp-for="MovieImageFileName" type="file" class="form-control" placeholder="resim!" />
+            <span asp-validation-for="MovieName" class="text-danger small"></span>
+        </div>*@
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-primary btn-sm" form="frmAddNewMovie"><i class="fa fa-save me-2"></i>Save</button>
+</div>
+
+@if (string.IsNullOrEmpty(Model.Done) == false)
+{
+    <script>
+        $("#modalAdd").modal("hide");
+        toastr.success('@Model.Done', "Success");
+        refresh.click();
+    </script>
+}
