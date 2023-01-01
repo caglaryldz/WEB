@@ -1,13 +1,12 @@
 ﻿@model List<MovieModel>
-
-
-
+denemee
 <table class="table table-hover table-sm">
     <thead>
         <tr>
-            <th>MovieName</th>
-            <th>Yonetmen</th>
-            <th>KategoryId</th>
+            <th>Fullname</th>
+            <th>Username</th>
+            <th>Locked</th>
+            <th>Role</th>
             <th>Created At</th>
             <th></th>
         </tr>
@@ -18,20 +17,9 @@
             <tr>
                 <td>@movie.MovieName</td>
                 <td>@movie.Yonetmen</td>
-                <td>@movie.CategoryId</td>
-                <td>@movie.CreatedAt</td>
-                <td class="text-end">
+                
 
-                    <a asp-action="EditUserPartial" asp-route-id="@movie.Id" class="btn btn-info btn-sm text-white"
-                   data-bs-toggle="modal" data-bs-target="#modalEdit" data-ajax="true" data-ajax-method="get" data-ajax-update="#modalEditContent">
-                        <i class="fa fa-edit me-2"></i>Edit
-                    </a>
 
-                    <a asp-action="DeleteUser" asp-route-id="@movie.Id"
-                   data-ajax-confirm="Are you sure want to delete this user : @movie.MovieName ?"
-                   data-ajax="true" data-ajax-method="get" data-ajax-update="#panel"
-                   class="btn btn-danger btn-sm"><i class="fa fa-trash me-2"></i>Remove</a>
-                </td>
             </tr>
         }
     </tbody>

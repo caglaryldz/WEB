@@ -119,6 +119,7 @@ namespace WebApplication99.Controllers
         public IActionResult Profile()
         {
             ProfileInfoLoader();
+            
 
             return View();
         }

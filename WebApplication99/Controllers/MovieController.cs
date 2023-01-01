@@ -3,6 +3,13 @@ using WebApplication99.Entities;
 using WebApplication99.Helpers;
 using WebApplication99.Models;
 using AutoMapper;
+using AutoMapper;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using WebApplication99.Entities;
+using WebApplication99.Helpers;
+using WebApplication99.Models;
 
 
 namespace WebApplication99.Controllers
@@ -25,39 +32,67 @@ namespace WebApplication99.Controllers
         }
         public IActionResult MovieListPartial()
         {
+
+
+            /*List<MovieModel> movies =
+     _databaseContext.Movies.ToList()
+         .Select(x => _mapper.Map<MovieModel>(x)).ToList();
+
+             return PartialView("_MovieListPartial", movies);  */
+
+
+
+
             List<Movie> movies = _databaseContext.Movies.ToList();
             List<MovieModel> model = new List<MovieModel>();
-            _databaseContext.Movies.Select(x => new MovieModel { Id = x.Id, MovieName = x.MovieName, Yonetmen = x.Yonetmen, CreatedAt = x.CreatedAt, CategoryId=x.CategoryId });
+            _databaseContext.Movies.Select(x => new MovieModel { Id = x.Id, MovieName = x.MovieName, Yonetmen = x.Yonetmen /*, CreatedAt = x.CreatedAt, CategoryId = x.CategoryId */});
 
 
             return PartialView("_MovieListPartial", movies);  //?
         }
 
+        public IActionResult AddNewMoviePartial()
+        {
+            return PartialView("_AddNewMoviePartial", new CreateMovieModel());
+        }
+
+        [HttpPost]
         public IActionResult AddNewMovie(CreateMovieModel model)
         {
             if (ModelState.IsValid)
             {
                 if (_databaseContext.Movies.Any(x => x.MovieName.ToLower() == model.MovieName.ToLower()))
                 {
-                    ModelState.AddModelError(nameof(model.MovieName), "Film adi daha önceden alinmis.");
+                    ModelState.AddModelError(nameof(model.MovieName), "Kullanici adi daha önceden alinmis.");
                     return PartialView("_AddNewMoviePartial", model);
                 }
 
                 Movie movie = new()
                 {
                     MovieName = model.MovieName,
-                    Yonetmen= model.Yonetmen,
-                    
+                    Yonetmen = model.Yonetmen,
+                   
                 };
-
 
                 _databaseContext.Movies.Add(movie);
                 _databaseContext.SaveChanges();
+                int affectedRowCount = _databaseContext.SaveChanges();
 
-                return PartialView("_AddNewUserPartial", new CreateUserModel { Done = "Kllanici eklendi." });
+                /*if (affectedRowCount == 0)
+                {
+                    ModelState.AddModelError("", "Film eklenemedi");
+                }
+                else
+                {
+                    return RedirectToAction(nameof(Profile));
+                }*/
+                
+                return PartialView("_AddNewMoviePartial", new CreateMovieModel { Done = "Film eklendi." });
             }
 
-            return PartialView("_AddNewUserPartial", model);
+            return PartialView("_AddNewMoviePartial", model);
         }
+
+
     }
 }
