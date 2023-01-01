@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Movies";
 }
+@model List<MovieModel>
+
 
 <div class="row">
     <div class="col">
@@ -22,11 +24,9 @@ deneme
             <i class="fa fa-sync-alt me-2"></i>Reload
         </a>
     </div>
-</div>
-
 <div class="row mb-3">
     <div class="col">
-        <div id="panel2">
+        <div id="panel">
         </div>
     </div>
 </div>
@@ -47,10 +47,10 @@ deneme
 
 
 @section Scripts{
-    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
-    <script>
-        $(function () {
-            refresh.click();
-        });
-    </script>
+        <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
+        <script>
+            $(function () {
+                refresh.click();
+            });
+        </script>
 }

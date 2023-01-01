@@ -33,16 +33,6 @@ namespace WebApplication99.Controllers
         public IActionResult MovieListPartial()
         {
 
-
-            /*List<MovieModel> movies =
-     _databaseContext.Movies.ToList()
-         .Select(x => _mapper.Map<MovieModel>(x)).ToList();
-
-             return PartialView("_MovieListPartial", movies);  */
-
-
-
-
             List<Movie> movies = _databaseContext.Movies.ToList();
             List<MovieModel> model = new List<MovieModel>();
             _databaseContext.Movies.Select(x => new MovieModel { Id = x.Id, MovieName = x.MovieName, Yonetmen = x.Yonetmen /*, CreatedAt = x.CreatedAt, CategoryId = x.CategoryId */});
@@ -78,14 +68,6 @@ namespace WebApplication99.Controllers
                 _databaseContext.SaveChanges();
                 int affectedRowCount = _databaseContext.SaveChanges();
 
-                /*if (affectedRowCount == 0)
-                {
-                    ModelState.AddModelError("", "Film eklenemedi");
-                }
-                else
-                {
-                    return RedirectToAction(nameof(Profile));
-                }*/
                 
                 return PartialView("_AddNewMoviePartial", new CreateMovieModel { Done = "Film eklendi." });
             }

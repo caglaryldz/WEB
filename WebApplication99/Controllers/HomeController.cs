@@ -11,14 +11,11 @@ namespace WebApplication99.Controllers
     {
         public IActionResult Index()
         {
+           
             return View();
         }
 
-        [AllowAnonymous]
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+
 
         [AllowAnonymous]
         public IActionResult AccessDenied()
